@@ -1,0 +1,189 @@
+№5
+#include<iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+	
+    bool day, curtains, lamp;
+    cout << "Введите значения (1/0) для дня, штор и лампы:\n";
+    cin >> day >> curtains >> lamp;
+
+    if (day && curtains && lamp) { cout << "Светло\n"; }
+    else if (day && !curtains && !lamp) { cout << "Темно\n"; }
+    else if (day && curtains && !lamp) { cout << "Светло\n"; }
+    else if (day && !curtains && lamp) { cout << "Светло\n"; }
+    else if (!day && !curtains && !lamp) { cout << "Темно\n"; }
+    else if (!day && curtains && lamp) { cout << "Светло\n"; }
+    else if (!day && !curtains && lamp) { cout << "Светло\n"; }
+    else if (!day && curtains && !lamp) { cout << "Темно\n"; }
+    else { cout << "Error\n"; }
+
+}
+
+№6
+#include<iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+	
+	double h, R, r, l, V;
+	cout << "Введите данные усеченного конуса (h, R, r, l): \n";
+	cin >> h >> R >> r >> l;
+	cout << "V = " << (3.14 * h * ((R * R) + (R * r) + (r * r))) / 3 << endl;
+	cout << "S = " << 3.14 * (pow(R, 2) + (R + r) * l + pow(r, 2)) << endl;
+}
+
+№7
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+
+	double a, x, c;
+	cout << "Введите a и x: \n";
+	cin >> a >> x;
+	c = x;
+	if (x < 0) { c = x * -1; }
+	if (c < 1) 
+	{ 
+		if (x == 0) { cout << "Error\n"; }
+		else { cout << a * log(x); }
+	}
+	else if (c >= 1)
+	{
+		if (x * x > a) { cout << "Error\n"; }
+		else { cout << sqrt(a - x * x); }
+	}
+}
+
+№8
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+	
+	double x, y, b;
+	cout << "Введите b, x, y: \n";
+	cin >> b >> x >> y;
+	if (y >= b && x > b) { cout << log(b - y) * sqrt(b - x); }
+}
+
+№9
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+	
+	int N, c;
+	cout << "Введите натуральное число N: \n";
+	cin >> N;
+	c = N;
+	for (N; N < c + 10; N++) { cout << N << endl; }
+}
+
+№10
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+
+	for (double x = -4; x <= 4; x += 0.5)
+	{ 
+		if (x == 1) { cout << "Error\n"; }
+		else { cout << (pow(x, 2) - 2 * x + 2) / (x - 1) << endl; }
+	}
+}
+
+№11
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+
+	double S, p, n, m, r;
+	cout << "Введите данные (займ, кол-во лет, под какой процент): \n";
+	cin >> S >> n >> p;
+        if (p == 0 || n == 0) { cout << "Error\n"; }
+        else {
+	r = p / 100;
+	cout << "Месячная выплата будет составлять: " << (S * r * pow((1 + r), n)) / (12 * (pow((1 + r), n) - 1)) << endl;
+       }
+}
+
+№12
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+
+	double S, p, n, m, r, m1 = 0;
+	cout << "Введите данные (займ, кол-во лет, месячные выплаты): \n";
+	cin >> S >> n >> m;
+    if (n == 0) { cout << "Error\n"; }
+    for (p = 0.1; m1 < m; p+=0.1)
+    {
+        r = p / 100;
+        m1 = ((S * r * (pow((1 + r), n))) / (12 * (pow((1 + r), n)) - 1));
+        if (m1 > m) {
+            cout << "Процент будет составлять: " << p << endl;
+            break;
+        }
+        else if (p > 100) {
+            cout << "Не может быть более 100% " << endl;
+        }
+    }
+}
+
+№13
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+
+	string path = "Text.txt";
+	char text;
+	ifstream fin;
+	fin.open(path);
+	while (fin.get(text))
+	{
+		cout << text;
+	}
+	fin.close();
+}
+
+№14
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+
+	string path = "Text.txt";
+	char text;
+	ifstream fin;
+	fin.open(path);
+	while (fin.get(text))
+	{
+		if (isdigit(text)) { cout << text; }
+	}
+	fin.close();
+}
