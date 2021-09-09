@@ -71,7 +71,7 @@ int main() {
 	double x, y, b;
 	cout << "Введите b, x, y: \n";
 	cin >> b >> x >> y;
-	if (y >= b && x > b) { cout << log(b - y) * sqrt(b - x); }
+	if (y >= b && x < b) { cout << log(b - y) * sqrt(b - x); }
 }
 
 №9
