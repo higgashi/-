@@ -187,3 +187,31 @@ int main() {
 	}
 	fin.close();
 }
+
+N15
+#include<iostream>
+#include<string>
+#include<fstream>
+#include<algoritm>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+
+	string path = "Text.txt";
+	char text, ch[30];
+	ifstream fin;
+	fin.open(path);
+	for (int i = 0; i <= 30; i++)
+        {
+                fin.get(text);
+                ch[i] = text;
+                if (fin.eof()) { break; }
+        }
+        sort(ch, ch + 30);
+        for (int j = 0; j <= 30; j++) 
+        {
+                 cout << ch[j];
+        }
+	fin.close();
+}
