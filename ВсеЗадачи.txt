@@ -302,7 +302,48 @@ int main()
 }
 
 №4.6
+#include <iostream>
+#include <string>
+using namespace std;
 
+int convert(char x)
+{
+    switch (x)
+    {
+    case 'I':
+        return 1;
+    case 'V':
+        return 5;
+    case 'X':
+        return 10;
+    case 'L':
+        return 50;
+    case 'C':
+        return 100;
+    case 'D':
+        return 500;
+    case 'M':
+        return 1000;
+    }
+}
+
+int main()
+{
+    string s;
+    cin >> s;
+    int sum = 0, c1 = 0;
+    for (int i = s.length() - 1; i >= 0; i--)
+    {
+        int c = convert(s[i]);
+        if (c >= c1)
+            c1 = c;
+        if (c == c1)
+            sum += c;
+        else
+            sum -= c;
+    }
+    cout << sum;
+}
 
 №4.7
 #include<iostream>
