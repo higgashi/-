@@ -301,7 +301,22 @@ int main()
     return 0;
 }
 
+№4.6
 
+
+№4.7
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	long long int m = 25173, i = 13849, c = 65537, s[100000];
+	s[0] = 0;
+	s[i + 1] = (m * s[i] + i) % c;
+	cout << s;
+	return 0;
+}
 
 №4.8
 #include<iostream>
@@ -526,4 +541,60 @@ int main()
  
 
 	return 0;
+}
+
+
+-------------
+№5.1
+#include <iostream>
+using namespace std;
+
+int NOD_1(int a, int b)
+{
+    while (a > 0 && b > 0)
+
+        if (a > b)
+            a %= b;
+
+        else
+            b %= a;
+
+    return a + b;
+}
+
+int NOD_2(int a, int b)
+{
+    while (a != b)
+
+        if (a > b)
+            a -= b;
+
+        else
+            b -= a;
+
+    return a;
+}
+
+int main()
+{
+    int a, b;
+    cin >> a >> b;
+    cout << NOD_1(a, b) << endl << NOD_2(a, b);
+}
+
+№5.2
+#include <iostream>
+using namespace std;
+
+int simple(int n) {
+    for (int i = 2; i <= n / 2; i++) if ((n % i) == 0) return 0;
+    return 1;
+}
+
+
+int main()
+{
+    int n;
+    cin >> n;
+    for (int i = 2; i < n; i++)    if (simple(i))  cout << i << endl;;
 }
