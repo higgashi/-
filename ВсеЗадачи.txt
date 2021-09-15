@@ -347,14 +347,16 @@ int main()
 
 №4.7
 #include<iostream>
-#include<cmath>
 using namespace std;
 
 int main()
 {
-	long long int m = 25173, i = 13849, c = 65537, s[100000];
-	s[0] = 0;
-	s[i + 1] = (m * s[i] + i) % c;
+	long long int m = 25173, c = 65537, s[100000];
+	for (int i = 0; i <= 13849; i++)
+	{
+		if (i == 0) { s[i] = 0; }
+		s[i + 1] = (m * s[i] + i) % c;
+	}
 	cout << s;
 	return 0;
 }
