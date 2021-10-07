@@ -681,3 +681,135 @@ int main() {
 
 	system("pause");
 }
+
+-----------------------------------------------------------------------
+8.1
+#include <iostream>
+#include <string>
+using namespace std;
+
+void convertToASCII(string letter)
+{
+    for (int i = 0; i < letter.length(); i++)
+    {
+        char x = letter.at(i);
+        cout << int(x) << " ";
+    }
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+
+    string Text;
+    cout << "Введите текст: ";
+    getline(cin, Text);
+    convertToASCII(Text);
+    return 0;
+}
+
+8.2
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+
+    int n;
+    double a, sum = 0, x = 1, c;
+    cin >> n >> a;
+    c = a;
+    n += 1;
+
+    if (a == 0) { cout << "Error\n"; }
+    else
+    {
+        for (int i = 1; i < n; i++)
+        {
+            if (i == 1) { sum += i / a; }
+            
+                while (x < i + 1)
+                {
+                    a *= (a + x);
+                    x++;
+                }
+                sum += (i + 1) / a;
+
+                a = c;
+            
+        }
+        cout << sum;
+    }
+
+    return 0;
+}
+
+Спиннеры
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void spinner1() 
+{
+    long int a, b, c, i = 0, n;
+    cin >> a >> b >> c;
+    
+    if (a <= c) {
+        n = a;
+        while (n + b <= c) {
+            n += b;
+            i++;
+        }
+        cout << i << endl;
+    }
+    else
+    {
+        cout << "Error\n";
+    }
+
+}
+
+void spinner2() 
+{
+    long int c1 = 0, c2 = 0, n;
+    cin >> n;
+    if (n > 2 && n != 5)
+    {
+        if (n % 4 == 0)
+        {
+            c2 = n / 4;
+            c1 = 0;
+        }
+        else if (n % 4 == 1)
+        {
+            c2 = (n - 9) / 4;
+            c1 = 3;
+        }
+        else if (n % 4 == 2)
+        {
+            c2 = (n - 6) / 4;
+            c1 = 2;
+        }
+        else if (n % 4 == 3)
+        {
+            c2 = (n - 3) / 4;
+            c1 = 1;
+        }
+        cout << c1 << endl <<  c2 << endl;
+    }
+    else { cout << 0 << endl; }
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+
+    spinner1();
+    spinner2();
+    
+    return 0;
+}
