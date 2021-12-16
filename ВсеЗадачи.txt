@@ -813,3 +813,129 @@ int main()
     
     return 0;
 }
+
+
+ФАЙЛЫ 8 вариант
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "ru");
+
+
+
+	double n, x, l = 1, f = 1;
+	cin >> n;
+	double a[100][100], b[100][100], c[100][100], e[100][100], be[100][100], abe[100][100], abec[100][100];
+	ofstream out("Text", ios::app);
+	if (out.is_open())
+	{
+		out << "a:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				cin >> x;
+				a[i][j] = x;
+				out << x;
+				if (j < n - 1) { out << " "; }
+			}
+			out << endl;
+		}
+		out << "b:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				cin >> x;
+				b[i][j] = x;
+				out << x;
+				if (j < n) { out << " "; }
+			}
+			out << endl;
+		}
+		out << "e:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				e[i][j] = 1;
+				out << 1;
+				if (j < n) { out << " "; }
+			}
+			out << endl;
+		}
+		out << "c:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			
+			for (int j = 0; j < n; j++)
+			{
+				
+				double sum = 1 / (f + l);
+				c[i][j] = sum;
+				out << c[i][j];
+				if (j < n) { out << " "; }
+				l++;
+				if (l == n + 1) { l = 1; }
+			}
+			out << endl;
+			f++;
+		}
+		out << "b - e:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				be[i][j] = b[i][j] - e[i][j];
+				out << be[i][j];
+				if (j < n) { out << " "; }
+			}
+			out << endl;
+		}
+		out << "a * (b - e):" << endl;
+		for (int i = 0; i < n; i++)
+		{
+
+			for (int j = 0; j < n; j++)
+			{
+				abe[i][j] = 0;
+				for (int k = 0; k < n; k++)
+				{
+					abe[i][j] += a[i][k] * be[k][j];
+				}
+				out << abe[i][j];
+				if (j < n) { out << " "; }
+			}
+			out << endl;
+		}
+		out << "a * (b - e) + c:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				abec[i][j] = abe[i][j] + c[i][j];
+				out << abec[i][j];
+				if (j < n) { out << " "; }
+			}
+			out << endl;
+		}
+	}
+	
+	out.close();
+	cout << endl << endl;
+
+	char text;
+	ifstream fin;
+	fin.open("Text.txt");
+	while (fin.get(text))
+	{
+		cout << text;
+	}
+	fin.close();
+	return 0;
+}
